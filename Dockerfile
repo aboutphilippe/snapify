@@ -22,6 +22,8 @@ RUN \
 ##### BUILDER
 
 FROM --platform=linux/amd64 node:18-alpine3.17 AS builder
+RUN npm install -g npm@10.5.2
+
 ARG DATABASE_URL
 ARG NEXTAUTH_URL
 ARG NEXTAUTH_SECRET
