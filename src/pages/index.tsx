@@ -1,7 +1,7 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import { useSession } from "next-auth/react";
-import { useFeatureFlagEnabled, usePostHog } from "posthog-js/react";
+import { usePostHog } from "posthog-js/react";
 import { useAtom } from "jotai";
 import recordVideoModalOpen from "~/atoms/recordVideoModalOpen";
 import VideoRecordModal from "~/components/VideoRecordModal";
@@ -30,7 +30,7 @@ const Home: NextPage = () => {
     if (session.status === "authenticated" && !recordModalOpen) {
       void router.push("/videos");
     }
-  }, [session, router]);
+  }, [session, router, recordModalOpen]);
 
   const openRecordModal = () => {
     if (
@@ -148,7 +148,7 @@ const Home: NextPage = () => {
                   <div className="mx-auto mt-4 flex items-center justify-center gap-2">
                     <div className="flex-none">
                       <div>
-                        <img
+                        <Image
                           src={profilePicture}
                           alt="testimonial avatar"
                           className="rounded-full"

@@ -89,7 +89,7 @@ const VideoList: NextPage = () => {
         void router.push("/videos").then(() => router.reload());
       }, 5000);
     }
-  }, [checkoutCanceledQueryParam, closeQueryParam]);
+  }, [checkoutCanceledQueryParam, closeQueryParam, router]);
 
   return (
     <>

@@ -4,6 +4,7 @@ import { env } from "~/env.mjs";
 export const s3 = new S3({
   endpoint: env.AWS_ENDPOINT,
   region: env.AWS_REGION,
+  forcePathStyle: true, // Required for minio
   credentials: {
     accessKeyId: env.AWS_KEY_ID,
     secretAccessKey: env.AWS_SECRET_ACCESS_KEY,
